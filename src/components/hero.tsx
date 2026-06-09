@@ -4,7 +4,7 @@ import Range from "./components/range";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0a0a0a] px-4 md:px-6 py-12 md:py-20">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0a0a0a] px-4 md:px-6 pt-28 pb-12 md:py-20">
       <Range />
 
       <motion.div 
