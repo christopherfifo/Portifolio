@@ -1,10 +1,11 @@
-// src/components/Footer.tsx
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, Phone, ExternalLink } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
+  const { t } = useLanguage();
 
   return (
     <footer id="contato" className="relative bg-[#0a0a0a] pt-24 pb-12 px-6 md:px-12 lg:px-24 border-t border-zinc-900">
@@ -16,11 +17,11 @@ const Footer: React.FC = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-white mb-6">
-              Vamos criar algo <br /> 
-              <span className="text-brand-primary">extraordinário?</span>
+              {t.footer.callToAction} <br /> 
+              <span className="text-brand-primary">{t.footer.extraordinary}</span>
             </h2>
             <p className="text-zinc-400 text-lg max-w-md mb-8">
-              Estou sempre aberto a novos projetos, colaborações ou apenas um café virtual para falar sobre tecnologia.
+              {t.footer.description}
             </p>
             
             <div className="flex flex-col gap-4">
@@ -32,7 +33,7 @@ const Footer: React.FC = () => {
                   <Mail size={20} className="text-brand-primary" />
                 </div>
                 <div className="min-w-0">
-                  <div className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Email</div>
+                  <div className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">{t.footer.email}</div>
                   <div className="text-sm md:text-base font-medium break-all md:break-normal">christopherwillians.sc@gmail.com</div>
                 </div>
               </a>
@@ -45,7 +46,7 @@ const Footer: React.FC = () => {
                   <Phone size={20} className="text-brand-primary" />
                 </div>
                 <div className="min-w-0">
-                  <div className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">WhatsApp / Celular</div>
+                  <div className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">{t.footer.phone}</div>
                   <div className="text-sm md:text-base font-medium">+55 11 99197-3295</div>
                 </div>
               </a>
@@ -92,14 +93,14 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="pt-12 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="text-zinc-500 text-sm font-medium">
-            © {currentYear} <span className="text-zinc-300">Christopher Willians</span>. Todos os direitos reservados.
+          <div className="text-zinc-500 text-sm font-medium text-center md:text-left">
+            © {currentYear} <span className="text-zinc-300">Christopher Willians</span>. {t.footer.rights}
           </div>
           
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-6 md:gap-8">
             <a href="#" className="text-xs font-bold text-zinc-500 hover:text-white transition-colors tracking-widest uppercase">Início</a>
-            <a href="#projetos" className="text-xs font-bold text-zinc-500 hover:text-white transition-colors tracking-widest uppercase">Projetos</a>
-            <a href="#sobre" className="text-xs font-bold text-zinc-500 hover:text-white transition-colors tracking-widest uppercase">Sobre</a>
+            <a href="#projetos" className="text-xs font-bold text-zinc-500 hover:text-white transition-colors tracking-widest uppercase">{t.nav.projects}</a>
+            <a href="#sobre" className="text-xs font-bold text-zinc-500 hover:text-white transition-colors tracking-widest uppercase">{t.nav.about}</a>
           </div>
         </div>
       </div>

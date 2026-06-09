@@ -3,8 +3,10 @@ import { projects } from '../data/projects';
 import ProjectCard from './ProjectCard';
 import { LayoutGrid, SlidersHorizontal, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
 const ProjectsSection: React.FC = () => {
+  const { t } = useLanguage();
   const [viewMode, setViewMode] = useState<'carousel' | 'grid'>('carousel');
   const carouselRef = useRef<HTMLDivElement>(null);
 
@@ -28,7 +30,7 @@ const ProjectsSection: React.FC = () => {
           whileInView={{ opacity: 1, x: 0 }}
         >
           <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-white">
-            Projetos Selecionados
+            {t.projects.title}
           </h2>
         </motion.div>
 
@@ -46,7 +48,7 @@ const ProjectsSection: React.FC = () => {
             }`}
           >
             <SlidersHorizontal size={18} />
-            Showcase
+            {t.projects.showcase}
           </button>
           <button
             onClick={() => setViewMode('grid')}
@@ -57,7 +59,7 @@ const ProjectsSection: React.FC = () => {
             }`}
           >
             <LayoutGrid size={18} />
-            Grid
+            {t.projects.grid}
           </button>
         </motion.div>
       </div>

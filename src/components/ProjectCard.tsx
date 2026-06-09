@@ -3,6 +3,7 @@ import React from 'react';
 import type { Project } from '../types/project';
 import { ExternalLink, Github } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
 interface ProjectCardProps {
   project: Project;
@@ -10,6 +11,10 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const [isExpanded, setIsExpanded] = React.useState(false);
+  const { language, t } = useLanguage();
+
+  const title = language === 'EN' && project.tituloEn ? project.tituloEn : project.titulo;
+  const description = language === 'EN' && project.descricaoEn ? project.descricaoEn : project.descricao;
 
   return (
     <motion.div 
@@ -21,7 +26,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       <div className="relative aspect-[16/10] sm:aspect-[16/9] overflow-hidden">
         <img 
           src={project.imageUrl} 
-          alt={project.titulo}
+          alt={title}
           className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent opacity-90" />
@@ -32,7 +37,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         <div className="flex items-start gap-3 sm:gap-4 mb-4">
             <div className="w-1.5 h-8 bg-violet-500 rounded-full group-hover:h-10 transition-all duration-300 shrink-0" />
             <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white group-hover:text-violet-400 transition-colors duration-300 leading-tight">
-                {project.titulo}
+                {title}
             </h3>
         </div>
         
@@ -49,14 +54,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 
         <div className="relative mb-8">
           <p className={`text-zinc-400 text-sm sm:text-base leading-relaxed transition-all duration-300 ${!isExpanded ? 'line-clamp-3 sm:line-clamp-none' : ''}`}>
-            {project.descricao}
+            {description}
           </p>
-          {project.descricao.length > 100 && (
+          {description.length > 100 && (
             <button 
               onClick={() => setIsExpanded(!isExpanded)}
               className="sm:hidden mt-2 text-violet-400 text-xs font-bold uppercase tracking-widest hover:text-violet-300 transition-colors"
             >
-              {isExpanded ? 'Ler menos -' : 'Ler mais +'}
+              {isExpanded ? t.projects.readLess : t.projects.readMore}
             </button>
           )}
         </div>
@@ -79,7 +84,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               rel="noopener noreferrer"
               className="flex-1 flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-violet-600 text-[10px] font-black uppercase tracking-[0.15em] text-white hover:bg-violet-500 shadow-lg shadow-violet-900/20 hover:shadow-violet-600/40 transition-all duration-300"
             >
-              Live Demo
+              {t.projects.liveDemo}
               <ExternalLink size={16} />
             </a>
           )}

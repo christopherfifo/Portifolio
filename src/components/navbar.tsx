@@ -1,17 +1,18 @@
 import { useState } from "react";
 import { Github, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "../context/LanguageContext";
 
 const Navbar = () => {
-  const [language, setLanguage] = useState<"PT" | "EN">("PT");
+  const { language, setLanguage, t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const navLinks = [
-    { name: "PROJETOS", href: "#projetos" },
-    { name: "SOBRE", href: "#sobre" },
-    { name: "CONTATO", href: "#contato" },
+    { name: t.nav.projects, href: "#projetos" },
+    { name: t.nav.about, href: "#sobre" },
+    { name: t.nav.contact, href: "#contato" },
   ];
 
   return (
@@ -24,6 +25,7 @@ const Navbar = () => {
               CHRISTOPHER.DEV
             </div>
 
+            {/* Links Desktop */}
             <div className="hidden md:flex items-center gap-6">
               {navLinks.map((link) => (
                 <a 
@@ -38,6 +40,7 @@ const Navbar = () => {
           </div>
 
           <div className="flex items-center gap-2 md:gap-6">
+            {/* Seletor de Idioma Desktop */}
             <div className="hidden md:flex items-center gap-2 text-xs font-bold tracking-wider select-none">
               <span
                 onClick={() => setLanguage("PT")}
@@ -58,6 +61,7 @@ const Navbar = () => {
               </span>
             </div>
 
+            {/* Botão CV (Sempre visível ou ajustado) */}
             <button
               onClick={() => {
                 const link = document.createElement("a");
@@ -67,9 +71,10 @@ const Navbar = () => {
               }}
               className="bg-brand-primary hover:bg-[#d4bfff] text-black text-[9px] md:text-xs font-black px-3 py-1.5 md:px-6 md:py-2 rounded-full transition-all transform active:scale-95 shadow-[0_0_10px_rgba(195,166,255,0.3)]"
             >
-              CV
+              {t.nav.cv}
             </button>
 
+            {/* Link Github Desktop */}
             <a
               href="https://github.com/christopherfifo"
               target="_blank"
@@ -79,6 +84,7 @@ const Navbar = () => {
               <Github size={16} />
             </a>
 
+            {/* Botão Hamburguer Mobile */}
             <button 
               onClick={toggleMenu}
               className="flex md:hidden items-center justify-center w-8 h-8 text-white hover:text-brand-primary transition-colors"
@@ -89,6 +95,7 @@ const Navbar = () => {
         </div>
       </div>
 
+      {/* Menu Mobile Overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div

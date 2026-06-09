@@ -1,8 +1,11 @@
 import { Star } from "lucide-react";
 import { motion } from "framer-motion";
 import Range from "./components/range";
+import { useLanguage } from "../context/LanguageContext";
 
 const Hero = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0a0a0a] px-4 md:px-6 pt-28 pb-12 md:py-20">
       <Range />
@@ -25,7 +28,7 @@ const Hero = () => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-violet-500"></span>
             </span>
-            Disponível para novos projetos
+            {t.hero.available}
           </div>
 
           <h1 className="text-[13vw] sm:text-7xl md:text-8xl lg:text-9xl font-black leading-[0.85] mb-6 tracking-tighter">
@@ -34,7 +37,7 @@ const Hero = () => {
           </h1>
 
           <p className="text-neutral-500 font-mono tracking-[0.3em] md:tracking-[0.4em] mt-4 mb-10 uppercase text-[10px] sm:text-xs md:text-base opacity-80">
-            Full Stack Developer <span className="text-brand-primary mx-2">/</span> Software Engineer
+            {t.hero.role} <span className="text-brand-primary mx-2">/</span> {t.hero.softwareEngineer}
           </p>
 
           <motion.div 
@@ -58,11 +61,10 @@ const Hero = () => {
                 “
               </span>
               <p className="text-neutral-400 text-sm leading-relaxed mb-4 italic text-left">
-                Projetos pensados para crescer com estabilidade, código limpo e
-                experiência consistente.
+                {t.hero.quote}
               </p>
               <div className="text-[10px] font-black tracking-[0.2em] text-brand-primary uppercase text-left">
-                Produto + Engenharia
+                {t.hero.productEngineering}
               </div>
             </div>
 
@@ -74,7 +76,7 @@ const Hero = () => {
               </div>
               <div className="text-5xl font-black text-white">3+</div>
               <div className="text-[10px] text-neutral-500 font-bold tracking-[0.2em] uppercase mt-2 text-center">
-                Anos de Experiência
+                {t.hero.yearsOfExperience}
               </div>
             </div>
           </div>
@@ -97,10 +99,10 @@ const Hero = () => {
           </div>
           
           <div className="absolute -bottom-6 -left-6 bg-zinc-900 border border-zinc-800 p-4 rounded-2xl shadow-2xl">
-            <div className="text-xs text-zinc-500 font-bold uppercase tracking-widest mb-1">Localização</div>
+            <div className="text-xs text-zinc-500 font-bold uppercase tracking-widest mb-1">{t.hero.locationTitle}</div>
             <div className="text-sm text-white font-bold flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-              Brasil, SP
+              {t.hero.location}
             </div>
           </div>
         </motion.div>
