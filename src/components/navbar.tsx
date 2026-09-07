@@ -19,18 +19,19 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 w-full z-50 px-2 md:px-4 pt-6 pointer-events-none">
       <div className="flex justify-center w-full">
         <div className="flex items-center justify-between w-full max-w-6xl px-4 md:px-8 py-3 bg-[#121212]/80 backdrop-blur-xl border border-white/10 rounded-full shadow-2xl pointer-events-auto">
-          
           <div className="flex items-center gap-3 md:gap-8">
-            <div className="text-white font-bold tracking-widest md:tracking-[0.2em] text-[10px] md:text-base whitespace-nowrap">
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="text-white font-bold tracking-widest md:tracking-[0.2em] text-[10px] md:text-base whitespace-nowrap bg-transparent border-none p-0 m-0 cursor-pointer"
+            >
               CHRISTOPHER.DEV
-            </div>
+            </button>
 
-            {/* Links Desktop */}
             <div className="hidden md:flex items-center gap-6">
               {navLinks.map((link) => (
-                <a 
+                <a
                   key={link.name}
-                  href={link.href} 
+                  href={link.href}
                   className="text-zinc-400 hover:text-white text-xs font-bold transition-colors"
                 >
                   {link.name}
@@ -40,7 +41,6 @@ const Navbar = () => {
           </div>
 
           <div className="flex items-center gap-2 md:gap-6">
-            {/* Seletor de Idioma Desktop */}
             <div className="hidden md:flex items-center gap-2 text-xs font-bold tracking-wider select-none">
               <span
                 onClick={() => setLanguage("PT")}
@@ -61,7 +61,6 @@ const Navbar = () => {
               </span>
             </div>
 
-            {/* Botão CV (Sempre visível ou ajustado) */}
             <button
               onClick={() => {
                 const link = document.createElement("a");
@@ -74,7 +73,6 @@ const Navbar = () => {
               {t.nav.cv}
             </button>
 
-            {/* Link Github Desktop */}
             <a
               href="https://github.com/christopherfifo"
               target="_blank"
@@ -84,8 +82,7 @@ const Navbar = () => {
               <Github size={16} />
             </a>
 
-            {/* Botão Hamburguer Mobile */}
-            <button 
+            <button
               onClick={toggleMenu}
               className="flex md:hidden items-center justify-center w-8 h-8 text-white hover:text-brand-primary transition-colors"
             >
@@ -95,7 +92,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Menu Mobile Overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -106,16 +102,16 @@ const Navbar = () => {
           >
             <div className="flex flex-col gap-6">
               {navLinks.map((link) => (
-                <a 
+                <a
                   key={link.name}
-                  href={link.href} 
+                  href={link.href}
                   onClick={() => setIsOpen(false)}
                   className="text-zinc-300 hover:text-brand-primary text-lg font-bold transition-colors border-b border-white/5 pb-2"
                 >
                   {link.name}
                 </a>
               ))}
-              
+
               <div className="flex items-center justify-between pt-2">
                 <div className="flex items-center gap-4 text-sm font-bold tracking-widest text-zinc-400">
                   <span
