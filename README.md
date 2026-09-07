@@ -1,73 +1,110 @@
-# React + TypeScript + Vite
+# Portfólio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portfólio pessoal desenvolvido para apresentar minha trajetória como desenvolvedor, projetos, tecnologias e formas de contato.
 
-Currently, two official plugins are available:
+O projeto foi desenvolvido do zero como uma evolução da primeira versão do meu portfólio, criada há quase 3 anos utilizando apenas HTML, CSS e JavaScript.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologias
 
-## React Compiler
+- React
+- TypeScript
+- Vite
+- CSS
+- ESLint
+- Git
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+## ✨ Funcionalidades
 
-## Expanding the ESLint configuration
+- 🌐 Suporte aos idiomas **Português e Inglês**
+- 📱 Interface responsiva
+- 🧩 Componentização com React
+- 🔒 Tipagem estática com TypeScript
+- 📂 Apresentação dos principais projetos
+- 👨‍💻 Informações sobre minha trajetória e conhecimentos
+- 📩 Seção de contato
+- ⚡ Desenvolvimento e build utilizando Vite
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📸 Preview
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Português
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+![Portfólio em Português](./images/hero.png)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### English
+
+![Portfolio in English](./images/hero%20i.png)
+
+## 🛠️ Instalação
+
+Clone o repositório:
+
+```bash
+git clone https://github.com/christopherfifo/Portifolio.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Acesse a pasta do projeto:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+cd Portifolio
 ```
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+Execute o projeto em ambiente de desenvolvimento:
+
+```bash
+npm run dev
+```
+
+O projeto estará disponível no endereço informado pelo Vite no terminal.
+
+## 📦 Build
+
+Para gerar a versão de produção:
+
+```bash
+npm run build
+```
+
+Para visualizar o build localmente:
+
+```bash
+npm run preview
+```
+
+## 📁 Estrutura
+
+A aplicação segue uma estrutura baseada em componentes, buscando manter a separação de responsabilidades e facilitar a manutenção e evolução do projeto.
+
+```text
+src/
+├── components/
+├── pages/
+├── assets/
+├── ...
+└── main.tsx
+```
+
+> A estrutura pode variar conforme a evolução do projeto.
+
+## 🎯 Objetivo
+
+Além de servir como meu portfólio pessoal, este projeto representa uma evolução da minha experiência como desenvolvedor.
+
+A primeira versão foi construída com tecnologias fundamentais da web. Nesta nova versão, busquei aplicar conceitos e práticas que venho desenvolvendo ao longo da minha jornada, como **componentização, tipagem, organização de código, responsividade e experiência do usuário**.
+
+## 👨‍💻 Autor
+
+**Christopher Willians Silva Couto**
+
+Desenvolvedor Full Stack
+
+- LinkedIn: [Christopher Willians Silva Couto](https://www.linkedin.com/)
+
+---
+
+⭐ Se você gostou do projeto, considere deixar uma estrela no repositório!
