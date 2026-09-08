@@ -5,7 +5,7 @@ export interface Project {
   descricao: string;
   descricaoEn?: string;
   techs: string[];
-  imageUrl: string;
-  repoUrl: string;
+  imageUrl?: string;
+  repoUrl?: string;
   liveUrl?: string; 
 }
